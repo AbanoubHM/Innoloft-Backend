@@ -49,8 +49,9 @@ namespace Innoloft_Backend.Controllers {
             return Ok(await PaginatedList<EventInListDto>.CreateAsync(allEvents, pageNumber, pageSize));
 
         }
+
         [HttpGet("user/{userId}")]
-        public async Task<ActionResult<PaginatedList<EventInListDto>>> GetAllEvents(int userId, int pageNumber = 1, int pageSize = 10) {
+        public async Task<ActionResult<PaginatedList<EventInListDto>>> GetUserEvents(int userId, int pageNumber = 1, int pageSize = 10) {
 
             if (_context.Events == null) {
                 return BadRequest();
