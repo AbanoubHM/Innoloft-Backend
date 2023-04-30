@@ -19,4 +19,5 @@ RUN dotnet publish "Innoloft-Backend.csproj" -c Release -o /app/publish /p:UseAp
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+COPY Innoloft-Backend/Innoloft.db .
 ENTRYPOINT ["dotnet", "Innoloft-Backend.dll"]
